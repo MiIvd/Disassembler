@@ -1,0 +1,35 @@
+###########################################################
+# Makefile for CS530 Assignment #2
+# Milad Balkhinezhad
+# Ryan Shaffar
+# Na Thavonekham
+# Sallymae Reyes
+###########################################################
+
+# Define constants
+EXEC = dasm.cpp dasm.h table.cpp table.h
+FILE = sample.obj
+PROVIDED = sample.sic sample.sym
+CC = g++
+
+# First argument, command line 'make'
+# Compiles entire program into executable 'dasm'
+make: $(EXEC)
+	$(CC) -std=gnu++11 $(EXEC) -o dasm 
+
+# Command line 'make file'
+# Runs the program with file 'sample.obj' as only command line argument
+file:
+	./dasm $(FILE)
+
+# Command line 'make clean'
+# Removes progam files
+clean:
+	rm -f * .o dasm $(EXEC)
+
+# Command line 'make empty'
+# Remove all files
+empty:
+	rm -f * .o dasm $(EXEC) $(FILE) $(PROVIDED)
+
+#######################[ EOF: Makefile ]###################
